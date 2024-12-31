@@ -1,8 +1,9 @@
 backend:
   name: github
+  repo: LionSherryStar/blog
   branch: main # Branch to update (optional; defaults to master)
 
-media_folder: "pubic/assets/images"
+media_folder: "public/assets/images"
 
 public_folder: "/assets/images" 
 
