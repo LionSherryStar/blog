@@ -1,18 +1,39 @@
 backend:
-  name: git-gateway
+  name: github
   branch: main # Branch to update (optional; defaults to master)
-media_folder: "src/assets/images/uploads"
-public_folder: "src/assets/images" 
+
+media_folder: "pubic/assets/images"
+
+public_folder: "/assets/images" 
+
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "src/content/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "post"
+    label: "博文"
+    folder: "src/content/post"
+    create: true
+    slug: "{{year}}.{{month}}.{{day}}_{{slug}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string", required: true }
+      - {
+          label: "简介",
+          name: "description",
+          widget: "string",
+          default: "这是一篇有意思的文章",
+          required: true,
+        }
+      - {
+          label: "发布日期",
+          name: "publishDate",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          required: true,
+        }
+      - { label: "标签", name: "tags", widget: "list", required: true }
+      - {
+          label: "ogImage",
+          name: "ogImage",
+          widget: "string",
+          default: "/social-card.avif",
+          required: true,
+        }
+      - { label: "正文", name: "body", widget: "markdown" }
