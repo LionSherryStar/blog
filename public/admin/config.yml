@@ -24,11 +24,23 @@ collections:
         }
       - {
           label: "发布日期",
-          name: "publishDate",
+          name: "published",
           widget: "datetime",
           date_format: "YYYY-MM-DD",
           required: true,
         }
-      - { label: "标签", name: "tags", widget: "list", required: true }
-
+      - {
+          label: "发布日期",
+          name: "updated",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          required: true,
+        }
+      - { label: "标签", name: "tags", widget: "list",default: ["draft"] }
+      - { label: "Draft", name: "draft", widget: "boolean",default: true }
+      - { label: "IMAGE", 
+          name: "image", 
+          widget: "image",
+          choose_url : true,
+        }
       - { label: "正文", name: "body", widget: "markdown" }
