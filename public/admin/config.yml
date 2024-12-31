@@ -10,7 +10,7 @@ public_folder: "/assets/images"
 collections:
   - name: "post"
     label: "博文"
-    folder: "src/content/post"
+    folder: "src/content/posts"
     create: true
     slug: "{{year}}.{{month}}.{{day}}_{{slug}}"
     fields:
@@ -30,11 +30,5 @@ collections:
           required: true,
         }
       - { label: "标签", name: "tags", widget: "list", required: true }
-      - {
-          label: "ogImage",
-          name: "ogImage",
-          widget: "string",
-          default: "/social-card.avif",
-          required: true,
-        }
+
       - { label: "正文", name: "body", widget: "markdown" }
